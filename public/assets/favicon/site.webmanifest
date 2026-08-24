@@ -1,0 +1,14 @@
+{
+  "name": "Ola Olugidan",
+  "short_name": "Ola Olugidan",
+  "icons": [
+    {
+      "src": "/assets/brand/o-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#F7F5F2",
+  "background_color": "#F7F5F2",
+  "display": "standalone"
+}
