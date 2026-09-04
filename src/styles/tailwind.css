@@ -808,122 +808,33 @@ html[data-theme='dark'] .theme-toggle-to-dark {
 .portrait-stage {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   isolation: isolate;
-  overflow: visible;
+  overflow: hidden;
   pointer-events: none;
 }
 
-.organic-eclipse {
-  position: absolute;
-  pointer-events: none;
-  overflow: visible;
-  z-index: 1;
-  left: -6%;
-  width: 118%;
-  top: 20%;
-  height: auto;
-}
-
-.organic-eclipse-back {
-  animation: heroEclipse 880ms var(--ease-smooth) 90ms both;
-}
-
-.organic-eclipse-field {
-  fill: rgb(var(--hero-eclipse));
-}
-
-@media (min-width: 768px) {
-  .portrait-stage-hero .organic-eclipse {
-    left: -10%;
-    width: 126%;
-    top: 16%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .portrait-stage-hero .organic-eclipse {
-    left: -16%;
-    width: 136%;
-    top: 6%;
-  }
-
-  .portrait-stage-hero .portrait-photo {
-    top: -6%;
-  }
+.portrait-stage-about {
+  aspect-ratio: 4 / 5;
 }
 
 .portrait-photo {
   position: absolute;
-  z-index: 5;
-  left: 6%;
-  width: 88%;
-  top: 0;
-  overflow: visible;
+  inset: 0;
+  z-index: 1;
 }
 
 .portrait-photo-img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
-  object-position: center top;
+  object-position: center center;
   background: transparent;
 }
 
-.portrait-stage-hero .portrait-photo {
-  left: 2%;
-  right: 2%;
-  top: 0;
-  bottom: 0;
-  width: auto;
-  height: auto;
-  overflow: visible;
-  /* Previous treatment adapted from .portrait-photo-img:
-     linear-gradient(to bottom, #000 62%, transparent 97%)
-     Applied to the wrapper so the fade maps to the hero composition,
-     not empty PNG padding, and the Eclipse shows through. */
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    #000 0%,
-    #000 46%,
-    rgb(0 0 0 / 0.78) 62%,
-    rgb(0 0 0 / 0.38) 76%,
-    rgb(0 0 0 / 0.1) 88%,
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    #000 0%,
-    #000 46%,
-    rgb(0 0 0 / 0.78) 62%,
-    rgb(0 0 0 / 0.38) 76%,
-    rgb(0 0 0 / 0.1) 88%,
-    transparent 100%
-  );
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-}
-
 .portrait-stage-hero .portrait-photo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center top;
-  overflow: visible;
-}
-
-@keyframes heroEclipse {
-  from {
-    opacity: 0;
-    transform: translate3d(-1.5%, 2.5%, 0) scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+  object-fit: cover;
 }
 
 .chapter-work {
@@ -1538,6 +1449,19 @@ html[data-theme='dark'] .theme-toggle-to-dark {
   max-width: 44rem;
 }
 
+.editorial-role-supporting,
+.editorial-role-detail {
+  max-width: 36rem;
+}
+
+.editorial-role-feature {
+  max-width: 40rem;
+}
+
+.editorial-role-evidence {
+  max-width: 44rem;
+}
+
 .editorial-media {
   overflow: hidden;
   background: rgb(var(--color-surface-soft));
@@ -1548,8 +1472,124 @@ html[data-theme='dark'] .theme-toggle-to-dark {
   display: block;
   width: 100%;
   height: auto;
+  /* Prefer natural proportion; object-cover only when a slot forces a frame */
+  object-fit: contain;
+  object-position: center center;
+}
+
+/* Slot-specific crop anchors (Stage 6.6 engineering) */
+.editorial-figure-home {
+  max-width: 36rem;
+}
+
+.editorial-figure-home .editorial-media-img {
+  /* Landscape supporting: natural 3:2; cover only if container constrains */
   object-fit: cover;
-  filter: saturate(0.94);
+  aspect-ratio: 3 / 2;
+  object-position: 48% 40%;
+}
+
+.editorial-figure-about {
+  max-width: 34rem;
+}
+
+.editorial-figure-about .editorial-media-img {
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  /* Bias downward so printed “Memorise” header is not the hero */
+  object-position: 52% 58%;
+}
+
+.editorial-figure-homeschool {
+  max-width: 28rem;
+}
+
+.editorial-figure-homeschool .editorial-media-img {
+  object-fit: cover;
+  aspect-ratio: 2 / 3;
+  /* Writing hands + notebook remain primary */
+  object-position: 50% 55%;
+}
+
+.editorial-figure-transformation {
+  margin-top: var(--space-16);
+  margin-bottom: var(--space-24);
+  max-width: 40rem;
+}
+
+.editorial-figure-transformation .editorial-media-img {
+  object-fit: cover;
+  aspect-ratio: 3 / 2;
+  object-position: 48% 50%;
+}
+
+.editorial-figure-faith {
+  max-width: 40rem;
+}
+
+.editorial-figure-faith .editorial-media-img {
+  object-fit: cover;
+  aspect-ratio: 3 / 2;
+  /* Keep both faces / conversational relationship */
+  object-position: 50% 32%;
+}
+
+@media (max-width: 767px) {
+  .editorial-figure-home,
+  .editorial-figure-about,
+  .editorial-figure-transformation,
+  .editorial-figure-faith,
+  .editorial-role-supporting,
+  .editorial-role-feature {
+    max-width: 100%;
+  }
+
+  .editorial-figure-homeschool {
+    max-width: 100%;
+  }
+
+  .editorial-figure-homeschool .editorial-media-img {
+    /* Mobile: child + hands + writing + material */
+    aspect-ratio: 4 / 5;
+    max-height: 26rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: 50% 52%;
+  }
+
+  .editorial-figure-home .editorial-media-img {
+    object-position: 45% 38%;
+  }
+
+  .editorial-figure-about .editorial-media-img {
+    object-position: 50% 62%;
+  }
+
+  .editorial-figure-faith .editorial-media-img {
+    object-position: 48% 30%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .editorial-figure-home,
+  .editorial-figure-about {
+    max-width: 32rem;
+  }
+
+  .editorial-figure-homeschool {
+    max-width: 24rem;
+  }
+}
+
+/* Dark mode: keep photographs photographic — no blanket filters */
+html[data-theme='dark'] .editorial-media {
+  border-color: rgb(var(--color-border));
+  background: rgb(var(--color-surface));
+}
+
+html[data-theme='dark'] .editorial-media-img {
+  /* Intentionally unfiltered */
+  filter: none;
 }
 
 .reveal.is-visible .editorial-media-img {
@@ -1699,8 +1739,6 @@ html[data-theme='dark'] .theme-toggle-to-dark {
 @media (prefers-reduced-motion: reduce) {
   .hero-in,
   .hero-enter,
-  .organic-eclipse,
-  .organic-eclipse-back,
   .portrait-photo,
   .editorial-media-img,
   .reveal,
@@ -1803,7 +1841,7 @@ html[data-theme='dark'] .theme-toggle-to-dark {
 }
 
 .personal-hero-photo {
-  overflow: visible;
+  overflow: hidden;
   z-index: 0;
 }
 
@@ -1894,6 +1932,7 @@ html[data-theme='dark'] .theme-toggle-to-dark {
 
 .portrait-block {
   margin: 0;
+  /* Default feature frame; About overrides to intrinsic file ratio */
   aspect-ratio: 4 / 5;
   background: rgb(var(--color-surface-soft));
   overflow: hidden;
@@ -1906,6 +1945,17 @@ html[data-theme='dark'] .theme-toggle-to-dark {
   object-fit: cover;
   object-position: center top;
   transition: transform var(--duration-normal) var(--ease-standard);
+}
+
+/* About identity: real 833×1024 relationship — not Home 1:1 */
+.about-portrait {
+  max-width: 28rem;
+  aspect-ratio: 833 / 1024;
+}
+
+.about-portrait .portrait-block-img {
+  object-fit: cover;
+  object-position: center 18%;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -1939,7 +1989,7 @@ html[data-theme='dark'] .theme-toggle-to-dark {
     max-width: 36rem;
     justify-self: end;
     width: 100%;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .personal-hero-context {
@@ -2093,10 +2143,6 @@ html[data-theme='dark'] .theme-toggle-to-dark {
   font-size: 1.05rem;
   line-height: 1.75;
   margin: 0 0 var(--space-24);
-}
-
-.about-portrait {
-  max-width: 28rem;
 }
 
 .page-close {

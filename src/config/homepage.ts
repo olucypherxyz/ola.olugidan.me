@@ -9,10 +9,10 @@ export const homepage = {
     /** Verified: existing About copy in src/config/portfolio.ts */
     support:
       "I've always been interested in what happens when technology has to work in the real world.",
-    portraitSrc: '/assets/home/ola-olugidan-cutout.png',
+    portraitSrc: '/assets/images/ola_portfolio_img.png',
     portraitAlt: 'Portrait of Ola Olugidan',
-    portraitWidth: 800,
-    portraitHeight: 1000,
+    portraitWidth: 2000,
+    portraitHeight: 2000,
     primaryCta: { label: 'Read my story', href: '/about' },
     secondaryCta: { label: 'Explore the work', href: '/work' },
   },

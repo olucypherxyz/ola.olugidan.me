@@ -1,9 +1,11 @@
 import React from 'react';
 import Section from '@/components/ui/Section';
 import Reveal from '@/components/Reveal';
+import EditorialFigure from '@/components/home/EditorialFigure';
 import RoomEnter from '@/components/RoomEnter';
 import RoomPager from '@/components/RoomPager';
 import { faithCommunityPage as page } from '@/config/pages';
+import { imagery } from '@/config/imagery';
 
 function editorialNodes(text: string) {
   const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
@@ -52,9 +54,20 @@ export default function FaithCommunityView() {
         </Section>
       </Reveal>
 
-      <Reveal>
+      <Reveal className="reveal-sequence">
         <Section id="faith-community" className="chapter-text" title={page.community.heading}>
           <Narrative paragraphs={page.community.paragraphs} />
+          <EditorialFigure
+            src={imagery.faithConversation.src}
+            alt={imagery.faithConversation.alt}
+            width={imagery.faithConversation.width}
+            height={imagery.faithConversation.height}
+            sizes={imagery.faithConversation.sizes}
+            objectPosition={imagery.faithConversation.objectPosition}
+            layoutRole={imagery.faithConversation.layoutRole}
+            priority={imagery.faithConversation.priority}
+            className="editorial-figure-faith"
+          />
         </Section>
       </Reveal>
 

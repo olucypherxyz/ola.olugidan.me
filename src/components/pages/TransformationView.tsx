@@ -1,10 +1,13 @@
 import React from 'react';
 import Section from '@/components/ui/Section';
+import Container from '@/components/ui/Container';
 import TextLink from '@/components/ui/TextLink';
 import Reveal from '@/components/Reveal';
+import EditorialFigure from '@/components/home/EditorialFigure';
 import RoomEnter from '@/components/RoomEnter';
 import RoomPager from '@/components/RoomPager';
 import { transformationPage as page } from '@/config/pages';
+import { imagery } from '@/config/imagery';
 
 export default function TransformationView() {
   const [meaningFirst, meaningSecond] = page.meaning.paragraphs;
@@ -23,6 +26,22 @@ export default function TransformationView() {
       </Section>
 
       <RoomPager pathname="/transformation" />
+
+      <Reveal className="reveal-sequence">
+        <Container>
+          <EditorialFigure
+            src={imagery.transformationEditorial.src}
+            alt={imagery.transformationEditorial.alt}
+            width={imagery.transformationEditorial.width}
+            height={imagery.transformationEditorial.height}
+            sizes={imagery.transformationEditorial.sizes}
+            objectPosition={imagery.transformationEditorial.objectPosition}
+            layoutRole={imagery.transformationEditorial.layoutRole}
+            priority={imagery.transformationEditorial.priority}
+            className="editorial-figure-transformation"
+          />
+        </Container>
+      </Reveal>
 
       <Reveal>
         <Section

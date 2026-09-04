@@ -27,6 +27,8 @@ export default function PersonalHero() {
           alt={hero.portraitAlt}
           size="hero"
           priority
+          width={hero.portraitWidth}
+          height={hero.portraitHeight}
           className="personal-hero-photo"
         />
 

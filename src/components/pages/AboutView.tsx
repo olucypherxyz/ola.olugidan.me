@@ -54,6 +54,7 @@ export default function AboutView() {
               alt={portrait.alt}
               width={portrait.width}
               height={portrait.height}
+              sizes="(max-width: 767px) 90vw, (max-width: 1023px) 50vw, 28rem"
               className="about-portrait"
             />
           </Container>
@@ -68,6 +69,10 @@ export default function AboutView() {
             alt={imagery.aboutWorkspace.alt}
             width={imagery.aboutWorkspace.width}
             height={imagery.aboutWorkspace.height}
+            sizes={imagery.aboutWorkspace.sizes}
+            objectPosition={imagery.aboutWorkspace.objectPosition}
+            layoutRole={imagery.aboutWorkspace.layoutRole}
+            priority={imagery.aboutWorkspace.priority}
             className="editorial-figure-about"
           />
         </Container>

@@ -60,6 +60,10 @@ export default function HomeschoolCoreView() {
             alt={imagery.homeschoolMaterials.alt}
             width={imagery.homeschoolMaterials.width}
             height={imagery.homeschoolMaterials.height}
+            sizes={imagery.homeschoolMaterials.sizes}
+            objectPosition={imagery.homeschoolMaterials.objectPosition}
+            layoutRole={imagery.homeschoolMaterials.layoutRole}
+            priority={imagery.homeschoolMaterials.priority}
             className="editorial-figure-homeschool"
           />
         </Section>

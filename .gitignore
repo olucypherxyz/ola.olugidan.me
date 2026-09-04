@@ -39,3 +39,9 @@ jest-test-results.json
 
 # Optional: if using TurboRepo or monorepo
 turbo/
+
+# Phase 6 imagery QC downloads (not production assets)
+docs/phase-6/verification/
+# Phase 6 QA screenshots (local inspection; README may be committed)
+docs/phase-6/qa-screenshots/*.png
+

@@ -19,6 +19,8 @@ export default function WorkProof({ labels }: { labels: readonly string[] }) {
           alt={item.alt}
           width={1600}
           height={1000}
+          layoutRole="evidence"
+          sizes="(max-width: 767px) 92vw, (max-width: 1023px) 80vw, 44rem"
           className="work-proof-figure"
         />
       ))}

@@ -6,6 +6,7 @@ export default function PortraitBlock({
   alt,
   width,
   height,
+  sizes = '(min-width: 1024px) 28rem, 90vw',
   priority = false,
   className = '',
 }: {
@@ -13,6 +14,7 @@ export default function PortraitBlock({
   alt: string;
   width: number;
   height: number;
+  sizes?: string;
   priority?: boolean;
   className?: string;
 }) {
@@ -24,7 +26,8 @@ export default function PortraitBlock({
         width={width}
         height={height}
         priority={priority}
-        sizes="(min-width: 1024px) 42vw, 90vw"
+        sizes={sizes}
+        quality={88}
         className="portrait-block-img"
       />
     </figure>

@@ -38,8 +38,9 @@ export const aboutPage = {
   portrait: {
     src: '/assets/about/ola-olugidan.png',
     alt: homepage.hero.portraitAlt,
-    width: homepage.hero.portraitWidth,
-    height: homepage.hero.portraitHeight,
+    /** Intrinsic size of about/ola-olugidan.png — distinct from Home 2000×2000 portrait */
+    width: 833,
+    height: 1024,
   },
   workCta: { label: 'Explore the work', href: '/work' },
   connectCta: { label: "Let's talk", href: '/connect' },
