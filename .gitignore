@@ -45,3 +45,4 @@ docs/phase-6/verification/
 # Phase 6 QA screenshots (local inspection; README may be committed)
 docs/phase-6/qa-screenshots/*.png
 
+.vercel
