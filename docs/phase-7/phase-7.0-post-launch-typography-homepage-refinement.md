@@ -77,11 +77,16 @@ Light/dark: spacing and copy only; tokens unchanged.
 |------|--------|
 | `npm run type-check` | PASS (`tsc --noEmit`) |
 | `npm run build` | PASS (Next.js 16.3.1; all routes static) |
-| Commit / push `main` | See deployment section below |
-| Production `https://ola-olugidan-me.vercel.app/` | Verified after GitHub → Vercel deploy |
+| Commit / push `main` | `2eb2244` pushed to `origin/main` |
+| Production `https://ola-olugidan-me.vercel.app/` | PASS — HTTP 200; lead + support copy present |
 
 ---
 
-## Out of scope (not touched)
+## Deployment
+
+- **Commit:** `2eb22443eeb254afe08c312e6b4641dd0b25a498` (`2eb2244`)
+- **Changed files:** `PersonalHero.tsx`, `homepage.ts`, `tailwind.css`, this report
+- **Deploy path:** GitHub → Vercel (`ola-olugidan-me`)
+- **Production verification:** Homepage returns 200; includes both BUILD intro paragraphs
 
 Phase 6 imagery, colour tokens, IA, specialist page copy (except inherited spacing from shared `.section-lede` / `.section-intro`), custom domain.
