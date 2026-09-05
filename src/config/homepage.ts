@@ -64,6 +64,8 @@ export const homepage = {
    */
   home: {
     heroStatement: 'I tend to start with the problem before the technology.',
+    heroSupport:
+      'My work often sits at the intersection of technology, business and people. Before choosing a platform or building a solution, I start by understanding the problem, the context around it, and what a useful outcome should actually look like.',
     who: 'I am Ola Olugidan. I lead technology and business work, and I am currently CTO and Managing Director at VIIX Solutions.',
     widening:
       'Over time, my work has grown beyond technology. I still build systems and solve technology problems, but I also work with professionals who want to grow in their careers.',

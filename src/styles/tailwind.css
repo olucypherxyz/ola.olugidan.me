@@ -847,8 +847,17 @@ html[data-theme='dark'] .theme-toggle-to-dark {
 
 .section-lede {
   max-width: 28rem;
-  margin: 0 0 1.5rem;
+  margin: 0 0 var(--space-16);
   color: rgb(var(--color-text-secondary));
+}
+
+.section-heading + .section-lede {
+  margin-top: var(--space-12);
+}
+
+/* Prevent intro + lede bottom margins from stacking (~56px → one intentional gap) */
+.section-intro > .section-lede:last-child {
+  margin-bottom: 0;
 }
 
 .project-row {
@@ -1808,7 +1817,12 @@ html[data-theme='dark'] .editorial-media-img {
 }
 
 .section-intro {
-  margin-bottom: var(--space-32);
+  margin-bottom: var(--space-24);
+}
+
+/* Avoid stacking intro margin with an internal lede when content follows */
+.section-intro:has(> .section-lede:last-child) {
+  margin-bottom: var(--space-16);
 }
 
 .pending-page {
@@ -1863,16 +1877,27 @@ html[data-theme='dark'] .editorial-media-img {
 }
 
 .personal-hero-room {
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-12);
   color: rgb(var(--color-accent-strong));
 }
 
+.personal-hero-intro {
+  margin: 0 0 var(--space-24);
+  max-width: 32rem;
+}
+
 .personal-hero-support {
-  margin: 0 0 var(--space-32);
-  max-width: 28rem;
+  margin: 0;
   color: rgb(var(--color-text-secondary));
   font-size: var(--type-body-lg);
   line-height: 1.4;
+}
+
+.personal-hero-support-body {
+  margin: var(--space-12) 0 0;
+  color: rgb(var(--color-text-secondary));
+  font-size: var(--type-body);
+  line-height: 1.65;
 }
 
 .personal-hero-actions {
@@ -2142,7 +2167,19 @@ html[data-theme='dark'] .editorial-media-img {
   color: rgb(var(--color-text-secondary));
   font-size: 1.05rem;
   line-height: 1.75;
-  margin: 0 0 var(--space-24);
+  margin: 0 0 var(--space-16);
+}
+
+/* About body passages are single paragraphs in full section-blocks —
+   tighten vertical padding so consecutive chapters read as related prose */
+.about-passage.section-block {
+  padding-block: var(--space-32);
+}
+
+@media (min-width: 768px) {
+  .about-passage.section-block {
+    padding-block: var(--space-48);
+  }
 }
 
 .page-close {

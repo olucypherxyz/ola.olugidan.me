@@ -34,7 +34,10 @@ export default function PersonalHero() {
 
         <div className="personal-hero-context">
           <p className="eyebrow personal-hero-room hero-enter hero-enter-3">{hero.activeRoom}</p>
-          <p className="personal-hero-support hero-enter hero-enter-3">{home.heroStatement}</p>
+          <div className="personal-hero-intro hero-enter hero-enter-3">
+            <p className="personal-hero-support">{home.heroStatement}</p>
+            <p className="personal-hero-support-body">{home.heroSupport}</p>
+          </div>
           <ol className="personal-hero-rooms hero-enter hero-enter-5" aria-label="Rooms">
             {hero.rooms.map((room) => {
               const href = roomHref(room);
